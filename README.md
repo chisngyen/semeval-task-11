@@ -4,8 +4,6 @@ Welcome to the official repository for **SemEval-2026 Task 11: Disentangling Con
 
 Official website: <https://sites.google.com/view/semeval-2026-task-11>
 
----
-
 ### Content Biases in LLMs
 
 A major challenge for Large Language Models (LLMs) is their tendency to confuse formal logical validity with the content of arguments. This phenomenon, known as **content effect**, means LLMs can:
@@ -18,7 +16,6 @@ A major challenge for Large Language Models (LLMs) is their tendency to confuse 
 
 This issue highlights a fundamental problem: the pre-training process inherently entangles reasoning with content, limiting the reliability and application of LLMs in critical real-world scenarios. While various methods have been proposed to address this, a truly effective solution remains elusive, especially across different languages.
 
----
 
 ### A Multilingual Evaluation of Content Effect on Reasoning
 
@@ -27,6 +24,18 @@ SemEval-2026 Task 11 aims to tackle this challenge by focusing on **multilingual
 To achieve this, we will release a novel, large-scale dataset of syllogistic arguments. This dataset will help us measure not only a model's accuracy but also how the content effect manifests and varies across different languages.
 
 We encourage participants to explore solutions based on natively multilingual open-source or open-weight models that offer insights into the internal reasoning mechanisms.
+
+###Timeline
+
+- Training data ready  (1 September 2025)
+- Evaluation kit release, information on languages, and output formats  (31 October 2025)
+- Evaluation data ready  & Codabench competition (1 December 2025)
+- Practice Phase (10 December 2025 - 31 December 2025)
+- Evaluation Phase (1 January 2026 - 31 January 2026)
+- Paper submission (February 2026)
+- Notification to authors (March 2026)
+- Camera-ready (April 2026)
+- SemEval workshop Summer 2026 (co-located with a major NLP conference)
 
 ---
 
@@ -52,6 +61,7 @@ The training set is exclusively in English to simulate a low-resource setting. A
 * **Note:** The model must correctly predict `validity: false`, ignoring the `plausibility: true` (which is based on world knowledge).
   
  ---
+In `evaluation_kit`, you can find the Python scrips that will be used to evaluate the systems. The scripts include mock examples to show participants the expected JSON output format. 
 
 ## Subtask 1: Syllogistic Reasoning in English (Binary Classification)
 
