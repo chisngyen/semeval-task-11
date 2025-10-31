@@ -63,7 +63,7 @@ The training set is exclusively in English to simulate a low-resource setting. A
 | :--- | :--- | :--- |
 | **Overall Accuracy** ($\text{ACC}_{\text{EN}}$) | Percentage of correct validity predictions across all items. | Measures basic logical competence. |
 | **Total Content Effect** ($\text{TCE}_{\text{EN}}$) | A composite score measuring the average accuracy difference due to plausibility across all four logical-plausibility conditions in English. **A lower TCE indicates higher logical integrity.** | Measures the model's overall susceptibility to content bias. |
-| **Primary Ranking Metric** | $\text{ACC}_{\text{EN}} 1 + \ln(1 + \text{TCE}_{\text{EN}})$ | **The official ranking metric.** This metric rewards high accuracy and smoothly penalizes content bias, favoring models that are both correct and robust. |
+| **Primary Ranking Metric** | $\text{ACC}_{\text{EN}}$ | **The official ranking metric.** This metric rewards high accuracy and smoothly penalizes content bias, favoring models that are both correct and robust. |
 
 ---
 
