@@ -53,59 +53,60 @@ The training set is exclusively in English to simulate a low-resource setting. A
 
 ---
 
-#### Subtask 1: Syllogistic Reasoning in English
+## Subtask 1: Syllogistic Reasoning in English (Binary Classification)
 
-* **Goal:** Determine the formal validity of syllogisms in English.
+**Goal:** Determine the formal validity of syllogisms in English.
 
-* **Metrics:**
+### Subtask 1 Metrics: Validity and Content Effect
 
-    * **Accuracy:** The percentage of correct validity predictions.
-    * **Intra-Plausibility Content Effect:** The average difference in accuracy between valid and invalid arguments given a plausibility value (measures biases towards a specific validity label). 
-    * **Cross-Plausibility Content Effect:** The average difference in accuracy between plausible and implausible arguments given a formal validity value (measures biases towards the plausibility value). 
-    * **Total Content Effect:** The average between intra and cross-plausibility content effect. A lower content effect is preferable, as it indicates that the model is relying on logical structure rather than real-world content or biases.
- 
-Ranking will be based on the ratio of accuracy to total content effect. A higher ratio indicates a model that is both accurate and robust against content bias.
-
----
-
-#### Subtask 2: Syllogistic Reasoning with Irrelevant Premises in English
-
-* **Goal:** Determine validity while filtering out "noisy" or irrelevant premises in English.
-
-* **Metrics:**
-
-  * **Binary Prediction:** Same accuracy and content effect metrics as Subtask 1.
-
-  * **Premise Selection:** An F1 score to measure the model's ability to identify relevant premises.
-    
-* **Ranking:** Based on the ratio of Accuracy and F1 to Content Effect. A higher ratio indicates a more robust model.
----
-
-#### Subtask 3: Multilingual Syllogistic Reasoning
-
-* **Goal:** Extend binary classification to multiple languages.
-
-* **Metrics:**
-
-  * **Accuracy:** Percentage of correct validity predictions in each language.
-
-  * **Multilingual Content Effect:** A composite score that measures both content effect within a target language and the difference in content effect between that language and English.
-
-* **Ranking:** Based on the ratio of Accuracy to Multilingual Content Effect.
+| Metric | Definition | Purpose |
+| :--- | :--- | :--- |
+| **Overall Accuracy** | Percentage of correct validity predictions across all items. | Measures basic logical competence. |
+| **Total Content Effect** ($\text{TCE}_{\text{EN}}$) | A composite score measuring the average accuracy difference due to plausibility across all four logical-plausibility conditions in English. **A lower TCE indicates higher logical integrity.** | Measures the model's overall susceptibility to content bias. |
+| **Primary Ranking Metric** | $$\frac{\text{Overall Accuracy}}{1 + \ln(1 + \text{TCE}_{\text{EN}})}$$ | **The official ranking metric.** This metric rewards high accuracy and smoothly penalizes content bias, favoring models that are both correct and robust. |
 
 ---
 
-#### Subtask 4: Multilingual Syllogistic Reasoning with Irrelevant Premises
+## Subtask 2: Syllogistic Reasoning with Irrelevant Premises in English (Retrieval + Classification)
 
-* **Goal:** Handle noisy, irrelevant premises in multiple languages.
+**Goal:** Determine validity while simultaneously identifying and filtering out "noisy" or irrelevant premises in English.
 
-* **Metrics:**
+### Subtask 2 Metrics: Retrieval, Validity, and Bias
 
-  * **Binary Prediction:** Same accuracy and content effect metrics as Subtask 3.
+| Metric | Definition | Purpose |
+| :--- | :--- | :--- |
+| $\text{F1}_{\text{Premises}}$ | Macro-averaged F1-Score for correctly identifying the subset of relevant premises out of all available premises. | Measures the model's ability to filter relevant information. |
+| **Combined Performance** ($\text{Avg}_{\text{EN}}$) | $\text{Avg}(\text{Overall Accuracy}, \text{F1}_{\text{Premises}})$ | Equates the weight given to the core reasoning task and the retrieval task. |
+| **Primary Ranking Metric** | $$\frac{\text{Avg}_{\text{EN}}}{1 + \ln(1 + \text{TCE}_{\text{EN}})}$$ | **The official ranking metric.** It applies the content bias penalty to the average performance metric. |
 
-  * **Premise Selection:** F1 score for identifying relevant premises.
+---
 
-* **Ranking:** Based on the ratio of Accuracy and F1 to Multilingual Content Effect.
+## Subtask 3: Multilingual Syllogistic Reasoning (Multilingual Binary Classification)
+
+**Goal:** Extend binary classification to multiple languages.
+
+### Subtask 3 Metrics: Multilingual Validity and Content Effect
+
+| Metric | Definition | Purpose |
+| :--- | :--- | :--- |
+| **Multilingual Accuracy ($\text{Acc}_{\text{Multi}}$)** | The average accuracy across all evaluated languages. | Measures average logical competence across languages. |
+| **Multilingual Content Effect** ($\text{TCE}_{\text{Multi}}$) | A composite score that measures content effect within each target language and the difference in TCE between each target language and English (cross-lingual stability penalty). **A lower TCE indicates higher cross-lingual robustness.** | Measures the model's overall susceptibility to content bias and its stability across languages. |
+| **Primary Ranking Metric** | $$\frac{\text{Acc}_{\text{Multi}}}{1 + \ln(1 + \text{TCE}_{\text{Multi}})}$$ | **The official ranking metric.** This metric rewards high average accuracy and smoothly penalizes multilingual content bias, favoring robust models. |
+
+---
+
+## Subtask 4: Multilingual Syllogistic Reasoning with Irrelevant Premises (Multilingual Retrieval + Classification)
+
+**Goal:** Handle noisy, irrelevant premises in multiple languages.
+
+### Subtask 4 Metrics: Multilingual Retrieval, Validity, and Bias
+
+| Metric | Definition | Purpose |
+| :--- | :--- | :--- |
+| $\text{F1}_{\text{Premises}}$ | Macro-averaged F1-Score for correctly identifying the subset of relevant premises out of all available premises, averaged across all languages. | Measures the model's multilingual ability to filter relevant information. |
+| **Multilingual Combined Performance** ($\text{Avg}_{\text{Multi}}$) | $\text{Avg}(\text{Acc}_{\text{Multi}}, \text{F1}_{\text{Premises}})$ | Equates the weight given to the core reasoning task and the retrieval task, averaged multilngually. |
+| **Multilingual Content Effect** ($\text{TCE}_{\text{Multi}}$) | Same as Subtask 3. | Measures the model's overall susceptibility to content bias and its stability across languages. |
+| **Primary Ranking Metric** | $$\frac{\text{Avg}_{\text{Multi}}}{1 + \ln(1 + \text{TCE}_{\text{Multi}})}$
 
 ---
 
