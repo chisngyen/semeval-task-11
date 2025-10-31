@@ -133,11 +133,11 @@ In `evaluation_kit`, you can find the Python scrips that will be used to evaluat
 
 The sutasks will include the following languages:
 
-**Subtask 1 & 3**:
+**Subtask 1 & 2**:
 
 - English (en)
 
-**Subtask 2 & 4**
+**Subtask 3 & 4**
 
 - German (de)
 - Spanish (es)
