@@ -49,6 +49,8 @@ The training set is exclusively in English to simulate a low-resource setting. A
 }
 ```
 
+* **Note:** The model must correctly predict `validity: false`, ignoring the `plausibility: true` (which is based on world knowledge).
+
 ---
 
 ### Languages
@@ -72,12 +74,6 @@ The sutasks will include the following languages:
 - Swahili (sw)
 - Bengali (bn)
 - Telugu (te)
-
----
-
-* **Note:** The model must correctly predict `validity: false`, ignoring the `plausibility: true` (which is based on world knowledge).
-
----
 
 ## Subtask 1: Syllogistic Reasoning in English (Binary Classification)
 
