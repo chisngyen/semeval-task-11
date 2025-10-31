@@ -49,6 +49,32 @@ The training set is exclusively in English to simulate a low-resource setting. A
 }
 ```
 
+---
+
+### Languages
+
+The sutasks will include the following languages:
+
+**Subtask 1 & 3**:
+
+- English (en)
+
+**Subtask 2 & 4**
+
+- German (de)
+- Spanish (es)
+- French (fr)
+- Italian (it)
+- Dutch (nl)
+- Portuguese (pt)
+- Russian (ru)
+- Chinese (zh)
+- Swahili (sw)
+- Bengali (bn)
+- Telugu (te)
+
+---
+
 * **Note:** The model must correctly predict `validity: false`, ignoring the `plausibility: true` (which is based on world knowledge).
 
 ---
