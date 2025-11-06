@@ -6,32 +6,33 @@ from typing import List, Dict, Any, Tuple, Optional
 
 # The syllogism for this task can include multiple premises. 
 # However, only a subset of premises are truly relevant (i.e., expressed as an index in "premises" indicating their relative position in the syllogism).
+# Moreoeve, the ontion of relevance is about logical validity - i.e., the set of valid premises contain the set of sentences that are necessary and sufficient to entail the conclusion. 
+# This means that only "valid" syllogisms have relevant premises.
 GROUND_TRUTH_DATA_JSON = """
 [
     {"id": "id1", "validity": false, "plausibility": true, "premises": [0, 2]},
     {"id": "id2", "validity": true, "plausibility": true, "premises": [1, 3]},
-    {"id": "id3", "validity": false, "plausibility": false, "premises": [0, 1]},
-    {"id": "id4", "validity": true, "plausibility": false, "premises": [2, 3]},
+    {"id": "id3", "validity": false, "plausibility": false, "premises": []},
+    {"id": "id4", "validity": true, "plausibility": false, "premises": []},
     {"id": "id5", "validity": true, "plausibility": true, "premises": [1, 2]},
     {"id": "id6", "validity": false, "plausibility": true, "premises": [0, 3]},
-    {"id": "id7", "validity": false, "plausibility": false, "premises": [1, 2]},
-    {"id": "id8", "validity": true, "plausibility": false, "premises": [0, 1]},
+    {"id": "id7", "validity": false, "plausibility": false, "premises": []},
+    {"id": "id8", "validity": true, "plausibility": false, "premises": []},
     {"id": "id9", "validity": true, "plausibility": true, "premises": [2, 3]},
     {"id": "id10", "validity": false, "plausibility": true, "premises": [0, 3]}
 ]
 """
 
 # Mock Predictions for Model A (High Bias, High Premise F1)
-# Model A aims for high F1: it correctly identifies two premises but sometimes adds a FP.
 MOCK_PREDICTIONS_MODEL_A_JSON = """
 [
     {"id": "id1", "validity": true,  "premises": [0, 2, 3]}, 
     {"id": "id2", "validity": true,  "premises": [1, 3]}, 
-    {"id": "id3", "validity": false, "premises": [0, 1]}, 
-    {"id": "id4", "validity": false, "premises": [2, 3]}, 
+    {"id": "id3", "validity": false, "premises": []}, 
+    {"id": "id4", "validity": false, "premises": []}, 
     {"id": "id5", "validity": true,  "premises": [1, 2]}, 
     {"id": "id6", "validity": true,  "premises": [0, 3]}, 
-    {"id": "id7", "validity": false, "premises": [1, 2, 0]},
+    {"id": "id7", "validity": false, "premises": []},
     {"id": "id8", "validity": true,  "premises": [0, 1]}, 
     {"id": "id9", "validity": true,  "premises": [2, 3]}, 
     {"id": "id10", "validity": true, "premises": [0, 3, 2]} 
@@ -39,19 +40,18 @@ MOCK_PREDICTIONS_MODEL_A_JSON = """
 """
 
 # Mock Predictions for Model B (Lower Bias, Lower Premise F1)
-# Model B is less biased in reasoning but is poor at premise filtering (high FP/FN).
 MOCK_PREDICTIONS_MODEL_B_JSON = """
 [
-    {"id": "id1", "validity": false, "premises": [0, 1, 2, 3]}, 
+    {"id": "id1", "validity": false, "premises": []}, 
     {"id": "id2", "validity": true,  "premises": [1, 3]}, 
-    {"id": "id3", "validity": false, "premises": [0, 1]}, 
+    {"id": "id3", "validity": false, "premises": []}, 
     {"id": "id4", "validity": true,  "premises": [2, 3]}, 
-    {"id": "id5", "validity": false, "premises": [1]}, 
-    {"id": "id6", "validity": false, "premises": [0, 3]}, 
+    {"id": "id5", "validity": false, "premises": []}, 
+    {"id": "id6", "validity": false, "premises": []}, 
     {"id": "id7", "validity": true,  "premises": [1, 2]}, 
-    {"id": "id8", "validity": false, "premises": [0, 2]}, 
+    {"id": "id8", "validity": false, "premises": []}, 
     {"id": "id9", "validity": true,  "premises": [2, 3]}, 
-    {"id": "id10", "validity": false, "premises": [0, 3, 1]} 
+    {"id": "id10", "validity": false, "premises": []} 
 ]
 """
 
