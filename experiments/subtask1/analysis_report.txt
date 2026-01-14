@@ -1,0 +1,997 @@
+Analyzing Exp36 Result Files (Ensembles + Seeds)...
+Loaded ensemble_majority.json: 191 samples
+Loaded ensemble_max_conf.json: 191 samples
+Loaded ensemble_mean_prob.json: 191 samples
+Loaded ensemble_top3.json: 191 samples
+Loaded ensemble_weighted.json: 191 samples
+Loaded pred_seed_10.json: 191 samples
+Loaded pred_seed_100.json: 191 samples
+Loaded pred_seed_123.json: 191 samples
+Loaded pred_seed_2024.json: 191 samples
+Loaded pred_seed_3000.json: 191 samples
+Loaded pred_seed_42.json: 191 samples
+Loaded pred_seed_555.json: 191 samples
+Loaded pred_seed_7.json: 191 samples
+Loaded pred_seed_888.json: 191 samples
+Loaded pred_seed_999.json: 191 samples
+
+==================================================
+PAIRWISE AGREEMENT MATRIX (%)
+==================================================
+                        ensemble_majority.json ensemble_max_conf.json ensemble_mean_prob.json ensemble_top3.json ensemble_weighted.json pred_seed_10.json pred_seed_100.json pred_seed_123.json pred_seed_2024.json pred_seed_3000.json pred_seed_42.json pred_seed_555.json pred_seed_7.json pred_seed_888.json pred_seed_999.json
+ensemble_majority.json                   100.0                  98.95                   99.48              99.48                  99.48             97.91              97.38              98.95               96.34               69.11             100.0              98.43            97.91              49.21              50.79
+ensemble_max_conf.json                   98.95                  100.0                   99.48              99.48                  99.48             98.95              97.38              98.95               96.34               68.06             98.95              97.38            96.86              50.26              49.74
+ensemble_mean_prob.json                  99.48                  99.48                   100.0              100.0                  100.0             98.43              97.91              99.48               96.86               68.59             99.48              97.91            97.38              49.74              50.26
+ensemble_top3.json                       99.48                  99.48                   100.0              100.0                  100.0             98.43              97.91              99.48               96.86               68.59             99.48              97.91            97.38              49.74              50.26
+ensemble_weighted.json                   99.48                  99.48                   100.0              100.0                  100.0             98.43              97.91              99.48               96.86               68.59             99.48              97.91            97.38              49.74              50.26
+pred_seed_10.json                        97.91                  98.95                   98.43              98.43                  98.43             100.0              96.34              97.91               96.34               68.06             97.91              96.34            95.81              50.26              49.74
+pred_seed_100.json                       97.38                  97.38                   97.91              97.91                  97.91             96.34              100.0              98.43               95.81               68.59             97.38              97.91            96.34              48.69              51.31
+pred_seed_123.json                       98.95                  98.95                   99.48              99.48                  99.48             97.91              98.43              100.0               97.38               69.11             98.95              97.38            96.86              49.21              50.79
+pred_seed_2024.json                      96.34                  96.34                   96.86              96.86                  96.86             96.34              95.81              97.38               100.0               71.73             96.34              95.81            96.34               46.6               53.4
+pred_seed_3000.json                      69.11                  68.06                   68.59              68.59                  68.59             68.06              68.59              69.11               71.73               100.0             69.11              69.63             71.2              31.94              68.06
+pred_seed_42.json                        100.0                  98.95                   99.48              99.48                  99.48             97.91              97.38              98.95               96.34               69.11             100.0              98.43            97.91              49.21              50.79
+pred_seed_555.json                       98.43                  97.38                   97.91              97.91                  97.91             96.34              97.91              97.38               95.81               69.63             98.43              100.0            97.38              47.64              52.36
+pred_seed_7.json                         97.91                  96.86                   97.38              97.38                  97.38             95.81              96.34              96.86               96.34                71.2             97.91              97.38            100.0              47.12              52.88
+pred_seed_888.json                       49.21                  50.26                   49.74              49.74                  49.74             50.26              48.69              49.21                46.6               31.94             49.21              47.64            47.12              100.0                0.0
+pred_seed_999.json                       50.79                  49.74                   50.26              50.26                  50.26             49.74              51.31              50.79                53.4               68.06             50.79              52.36            52.88                0.0              100.0
+
+==================================================
+DISAGREEMENT ANALYSIS
+==================================================
+
+[ Sample ID: 003e3990-3141-4a4f-bbb2-8d496df84710 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 026ddcfd-0279-455c-96fe-340672474b9f ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 03ac9985-ef97-4bab-974b-e75918cf6c05 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 03cc2c62-68d9-4f7e-98ea-f3fae01cb2c1 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 04996853-61fd-42a9-a624-55022231c633 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_100.json', 'pred_seed_888.json']
+
+[ Sample ID: 049d61bb-cd42-4142-a99a-154d048e2073 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 07920681-7c88-4bc7-8664-594779ff5ae4 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 0b026bf4-126a-47df-b0de-b388bd27cfbf ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 0b4b4991-85ef-45dd-981a-4ab75398a0e7 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 0cc0d0ae-390a-4f5d-9a86-b88d6cb22f91 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 103e14a2-88ad-41b1-8d1f-7308698193ba ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 10541e1f-8a1c-4e7b-8d84-fab0d65b94d8 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 129109ba-a60f-4fb7-a8d3-341580fffe0c ]
+--------------------
+VALID (3): ['pred_seed_100.json', 'pred_seed_555.json', 'pred_seed_999.json']
+INVALID (12): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 1426d859-baa5-484a-aa05-2615e8776499 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 143a3ae4-83d7-4e39-9181-3de95956b6d1 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 195b8204-13fb-460d-9b86-16a1cf946ffa ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 197af586-bb35-4468-b95b-66f96fde54e8 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 1d4bc4d0-df5b-4f46-9972-dd906f3c3754 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 1d818034-9835-4fad-8d0f-d5c83e7597df ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 1f38851f-b43f-42ee-a77a-dafeb7a3b29d ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 2148d9fc-c7e3-45b6-8429-e59d083350fb ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_10.json', 'pred_seed_888.json']
+
+[ Sample ID: 220a2d26-0db4-4e78-9143-2c9d1fbdac66 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 2324e141-9d60-425e-a797-224e19395db0 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 245192ce-465d-4f70-8808-b8f3ed933095 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 267064a3-db1a-4c57-a571-ce5c0c8f141e ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 2becb2e2-09ad-4468-91ab-59cd84985759 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 2c0190c9-f98c-46ce-88d2-275ee83f3b48 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 2c866578-204c-4f91-a6ef-faad0d188365 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 2d78480d-7948-48a1-8461-518121b355d2 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 2df39c25-0b41-4a37-b760-c722aeea552f ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 3167dc72-56e1-47ad-8a27-e9883d7cb917 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 3277e556-ec97-447f-8c23-97bdcf9a2b5d ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 331224ac-9f0e-4258-ab9d-8a3a73304e04 ]
+--------------------
+VALID (6): ['ensemble_majority.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (9): ['ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_888.json']
+
+[ Sample ID: 3628765c-fee6-4acf-8209-532629663003 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 362cdfd6-8602-406f-ac7a-bc837fa96545 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 370fc136-33be-4129-bf71-b557576fc5d2 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 372bfeea-11fd-47ad-b489-0616b8d2cd30 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 3864b331-e27b-45c0-9df1-2277f6c3bcf6 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 38d24800-8f0e-443d-97ee-1893f3706ea3 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 3a2acb10-9c38-4a52-a0a0-b2bf04e3759a ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 3b67d2a3-1245-4013-91d0-6463f2b41546 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 3c944a90-a461-4136-99dc-8ed0cf1d04b0 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 3f18c212-16aa-4c72-bde9-d1bb4349ca50 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 3f88e8d0-dd4c-45d8-8a75-02835b5a0c49 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 400d39a6-3666-4806-8143-03dacb844452 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 414a3052-c533-4951-93ee-fdc29d633b0a ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 41ee96a0-4400-4ba7-a4b3-54d49b5942cc ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 4217eb31-60ef-4909-8bbd-aaf43dfd68db ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 454ea1b7-bfb1-4a65-a000-c21cbe9b9ef4 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 45d4df27-8269-4ecb-9ead-f6571561f3d5 ]
+--------------------
+VALID (5): ['pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (10): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 45fc2b0d-433e-407f-a574-cac2caa54b90 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 4787263f-def5-4639-a523-d3541a99fe8a ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 483eaa32-5436-45f5-aa44-6c5633679ba1 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 48a96158-28f0-4e60-8802-3a7a9767cacb ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 49939bf4-a4ca-43c7-97c6-463a7ab2a653 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 4a405609-338a-4f3e-ba58-bc6690f121db ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 4b3008e8-0b0d-4ea6-8765-de94774551ae ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 4d23820c-5d2c-4eec-b345-2b86b1fb58b7 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 4ebc6f49-0176-42d3-9187-848df1dc6550 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 50b2444b-686f-487c-8e11-e76b4126b8ff ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 5260247f-b290-4bae-8d0c-a6c988d3d610 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 552b33b2-6a6a-4a10-8a76-5d0d7c3d35ff ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 56d2d008-769e-4361-be9a-70140b5796b3 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 57104ec7-4729-408b-938d-d37ee5d81de8 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 581fa853-f1e1-4450-8716-be9e17623a21 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 58670ea6-d7d3-439a-847a-0e77bf9d5c53 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 589ace73-14ef-480f-b0e0-77df273129d5 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 5934014e-aec0-442f-8a04-abddc9379cfc ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 597a91fd-1f07-45d9-9278-a8660622accc ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 5c2f4196-2ce4-41dd-a456-8a5198ba465f ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 5da02e7d-f0ca-462a-9517-061b16eb5248 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 5da917df-8760-476f-ae79-e20c20c61236 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 5ebfe44f-39a9-43eb-b8c0-17f997639cd2 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 5f8d85f1-6ffc-47d1-bb8b-bcba0dca1a9d ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 5f9dc1fd-7296-4337-bd26-73b8b1734c54 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 5fc96a8e-c3a3-467e-bca1-dfbc18827de1 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 60609ba7-37db-446f-a53c-e41568217236 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6094bd10-5daf-4a42-8eab-e2f321d0562c ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 60d34241-6fa1-4b68-b747-73a5e2d5995d ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 61549447-98e0-4960-b618-37958c570ba6 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6480d136-bcb5-4aee-a91b-f1c0e828583e ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 652a6a0e-cef2-4cd8-8562-e4c78589d320 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 65729a20-e483-464d-873b-bdfb2041b484 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6725d344-7c13-4d44-a97d-a4a1b89f858d ]
+--------------------
+VALID (4): ['pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_555.json', 'pred_seed_999.json']
+INVALID (11): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_42.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 67fb622a-222a-44d1-9996-6ed551f6a79e ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6936ce4a-9e83-488a-947d-66bb574f1789 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6a190af4-111a-4b3e-94bc-4a2efa1d8b8d ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6a9dff3f-07fb-4a68-9fe0-5f3b51d9ffeb ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6acd4cd7-9084-4650-be51-7486727c264e ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 6d615c95-bbcf-4b0d-b41b-1763fa186ab8 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 6e5f055f-06e4-40f3-a45b-52b7d9292d60 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 711debd8-26fc-42bc-916e-a7144ce10c7c ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 723a274a-a4ff-47f5-8a4f-0cf42e554a5a ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 7260bc88-c604-4113-a75e-939ae8166676 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 730ad5ee-b19a-4d69-bad3-309f2f2ac775 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 75606fbf-243c-4bf4-a2c9-b465e1dfc625 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 7595f31f-4f04-42c1-83e4-891c2aa9ddd4 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 7757fbfa-2895-462b-8af0-5fe5118ed0ff ]
+--------------------
+VALID (12): ['ensemble_majority.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (3): ['ensemble_max_conf.json', 'pred_seed_10.json', 'pred_seed_888.json']
+
+[ Sample ID: 77a82465-48a9-406f-b4ac-19ec40f5e053 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 7871929a-81a2-40c8-b515-2af727c44b13 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 78a473a3-d129-4c4d-8434-a0fce13d0024 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 79d80652-f46b-46f0-aa71-9d23c95901bf ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 7b2cf5cc-01ef-4c55-bba5-14b8554c88e7 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 7bb6a410-346d-4f41-ba2a-349c3d9c3674 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 7d736cba-aa56-4da6-af1c-a7a5a62a213c ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 7d9df7e7-eedb-44f5-8061-30b0a2a98db4 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 7e250e86-12a5-441f-8a5c-bd65f2cc79bf ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 7f1f3231-3a3a-44fa-930f-ace6cf37147e ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 8041eb99-e73f-46ca-a2d7-9aefd2c6c0b1 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 806e7a11-8342-4dbe-a927-d0e806a4b20b ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 80a62ff2-1bc5-48e6-bc9f-f877690852fc ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 817cdc8f-77b7-40f0-b530-534ff43e8157 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 821cda62-dee6-452f-ad54-8efdc614af27 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 828b05c2-09b0-4125-90db-ddb6707d6e05 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 837c9501-97f6-4bbd-bd87-ca004225d437 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 8465dcda-98cb-4696-b8d5-9f04732f49ec ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 84a1bda0-cd40-40ce-bff4-4dffcc19e6f0 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 85d441e2-8d3c-4574-a16f-f48a9cbad676 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 85dd382a-22e5-4c21-9218-33228012e4ad ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 8718088f-3491-4a7e-a2ce-7152317990f5 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 87c94990-9984-4e95-8bc2-6d04038fc550 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: 8812a393-e0c1-40db-9b3f-9622636faf4c ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 8886fcb2-f5db-46e1-8cdb-2d698c838393 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 88cbe1ec-a2be-40ca-9f5f-db71a17fba20 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 8dcec24c-8e0d-4c22-9ecc-5134f3c59fa8 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 8e100be7-956f-46e7-a431-a884cc30b28c ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 8e2e1ec3-ffad-4df7-a36e-686e0e81b7fe ]
+--------------------
+VALID (4): ['pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (11): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_888.json']
+
+[ Sample ID: 8f2faef7-397b-4544-b9e1-9e2221572866 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 92193f8e-bb29-4c19-b647-5050c518f786 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 96909dbd-70b8-4360-8b69-b7e32471b429 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 96d1a6d5-85d5-4446-9d55-7160847cd49d ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 989f0a8f-629c-40d6-a8ef-f31cc47d97ed ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 9c320004-80e7-4842-8b4d-87867ae29d08 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: 9d675913-128b-4451-9c9d-a397adcfef77 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 9ee7aff6-1237-4e93-b3e4-08434de41ede ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: 9f78a37a-81a8-426d-b524-d824fbeceab0 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: a2fcf47a-5df0-405d-86ce-ed8629f387a9 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: a50d01a9-97f3-4c5d-a89a-b5f18f91c8b8 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: a5992a44-d98f-46f0-831e-bddd22281a67 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: aba58977-4f05-4852-a433-720010a97208 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: ad09c938-3d1d-4d5e-b75f-04fb0098ba43 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: ad259739-10fe-472e-87bb-6a8d488acfeb ]
+--------------------
+VALID (5): ['pred_seed_100.json', 'pred_seed_3000.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (10): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_888.json']
+
+[ Sample ID: ad609a5a-b03c-4924-b217-680c76614f03 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: af77d792-0970-4650-8ccf-4218f7685b37 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: b1ee7c4f-fb73-4e19-a675-7577cb81bc0c ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: b479b2a2-7e13-4c4d-9269-fad1e3fd5220 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: b531ac79-36f1-49eb-86bb-3f5ef506b585 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: b6368b66-a4e2-4b6c-bcc3-7a04a3c0d604 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: b73d8e0e-782e-4e60-866b-595cf13a3421 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: bd01fc8a-394b-4833-9e2b-af5fa8d9e919 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: be9f522b-b67e-4107-a9b0-76ae2c1672bc ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: bff2af61-d4b0-4147-8a5b-ff4fe1892559 ]
+--------------------
+VALID (4): ['pred_seed_10.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (11): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: bff3e296-9b17-4fd6-9403-293ff999cfd6 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: c1c2bdfa-8151-4f68-ac0d-ad67118c1ea3 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: c232d8c7-8f29-46bc-8f5c-bdfa3c52fcd5 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: c43abaf0-596e-4909-b2b1-03bd3327ac0d ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: c62f852d-16fd-4eda-b380-b85d9a17f9e2 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: c690ad4e-b9a5-4410-80ac-5f97894dedff ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: c869ec62-ccfd-47ab-b7bc-2cb24c86b835 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: c91be219-5600-47fb-b1fc-f035dd21b630 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: cada4d49-02a3-4dc0-b207-88f4b7b29596 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: cc8b1d14-79aa-445e-929c-ec3043229103 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: d15cb838-c7fd-4799-a715-f8fdb1572d56 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: d1da6110-d78a-4f0b-9499-5740d031bdf5 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: d2bc4045-c226-4f0b-9b3a-32b3d8910b95 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: d63b3aff-77cd-4c65-9417-be63ce1c733b ]
+--------------------
+VALID (3): ['pred_seed_3000.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (12): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_888.json']
+
+[ Sample ID: d7957921-d384-41d5-aec4-ae0fd8c458a4 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: e0f02ca3-46a2-4cad-9a4d-29c030e0e1e3 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: e1a54f18-8d34-4a45-ae80-85de65382e9d ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: e1b00475-03d2-4149-9ca3-2ab601f34aea ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: e4fb7540-5e00-4c53-9dfd-4e7050ae4dc6 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: e585282c-a9ed-4cc1-b9e0-52db572a0f07 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: e6df12a9-03ea-4831-a9ea-2f7049e4daf9 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: e773bd8c-fa53-4e9c-8ec6-7d978e0601ac ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: ea6c2bc1-713a-45ad-85a4-cee85fd16552 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: eae77932-d7db-4ce8-b5b1-6c3c951ef553 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: eb316e9a-bfaa-484e-934b-26203731767c ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: ed73250f-c7ad-4976-8c45-d9bf6ece787b ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: edd9d95e-5279-446f-bfeb-5c6360139e89 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: ef762aac-30b4-4fb4-9ac6-012cdf463dc6 ]
+--------------------
+VALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (2): ['pred_seed_3000.json', 'pred_seed_888.json']
+
+[ Sample ID: efa6cac1-2f25-4499-a8c3-270cd761f39b ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: f36a4ca3-3b69-4869-a152-deaa7e0fdad4 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: f682283e-eb75-47d9-9e48-ca918d7c3737 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: f6da63f4-4a1e-4d79-8767-b7b8761a3a2e ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: f80a357f-3815-474b-b77a-9d1c6a3b9bd2 ]
+--------------------
+VALID (2): ['pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (13): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: f86ad9f5-da96-48cf-8f1b-eecff4855720 ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: fb637f9c-1c26-4302-9c01-94c061bd352c ]
+--------------------
+VALID (4): ['pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (11): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_888.json']
+
+[ Sample ID: fc1a0164-31a4-48aa-ab9d-176a66b93bfe ]
+--------------------
+VALID (1): ['pred_seed_999.json']
+INVALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: fc53be1a-0b75-4995-bcb2-bc3a878a0cb2 ]
+--------------------
+VALID (3): ['pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_999.json']
+INVALID (12): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_888.json']
+
+[ Sample ID: fd552276-66bf-45da-8cea-67192fe99fc3 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+[ Sample ID: fd7eed56-3886-40c5-b22d-627e7434e507 ]
+--------------------
+VALID (14): ['ensemble_majority.json', 'ensemble_max_conf.json', 'ensemble_mean_prob.json', 'ensemble_top3.json', 'ensemble_weighted.json', 'pred_seed_10.json', 'pred_seed_100.json', 'pred_seed_123.json', 'pred_seed_2024.json', 'pred_seed_3000.json', 'pred_seed_42.json', 'pred_seed_555.json', 'pred_seed_7.json', 'pred_seed_999.json']
+INVALID (1): ['pred_seed_888.json']
+
+Total samples with disagreements: 191
