@@ -86,8 +86,8 @@ class Config:
     MAX_LENGTH = 512
     
     # QLoRA params
-    LORA_R = 16
-    LORA_ALPHA = 32
+    LORA_R = 64
+    LORA_ALPHA = 128
     LORA_DROPOUT = 0.05
     
     # Training params (Conservative for 14B)
