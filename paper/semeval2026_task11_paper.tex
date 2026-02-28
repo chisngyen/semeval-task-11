@@ -1,0 +1,415 @@
+% HCMUS_DroneBoys at SemEval-2026 Task 11
+% Use ACL 2026 style files (acl_natbib.bst, acl.sty)
+% Compile with: pdflatex → bibtex → pdflatex → pdflatex
+
+\documentclass[11pt]{article}
+\usepackage[hyperref]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{arydshln}
+\usepackage{float}
+
+
+\renewcommand{\arraystretch}{1.1}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\newcommand{\method}{ACD-RLIA}
+
+\title{HCMUS\_DroneBoys at SemEval-2026 Task 11: Asymmetric Counterfactual Debiasing and Rank-Sensitive Logical Invariance Adaptation for Syllogistic Reasoning}
+
+\author{
+  Chi-Nguyen Tran\textsuperscript{$\ast$,1,2} \quad
+  Dao Sy Duy Minh\textsuperscript{$\ast$,1,2} \quad
+  Huynh Trung Kiet\textsuperscript{1,2} \\
+  Phu-Hoa Pham\textsuperscript{1,2} \quad
+  Nguyen Lam Phu Quy\textsuperscript{1,2} \\[4pt]
+  \textsuperscript{1}Faculty of Information Technology, University of Science, Ho Chi Minh, Vietnam \\
+  \textsuperscript{2}Vietnam National University, Ho Chi Minh City, Vietnam \\
+  \texttt{\{23122044, 23122041, 23122039\}@student.hcmus.edu.vn} \\
+  \texttt{\{23122030, 23122048\}@student.hcmus.edu.vn}
+}
+
+\begin{document}
+\maketitle
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext[1]{Equal contribution.}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+% ===========================================================================
+% ABSTRACT
+% ===========================================================================
+\begin{abstract}
+This paper describes our system for SemEval-2026 Task~11, Subtask~1: binary classification of syllogistic validity in English.
+The main challenge is the \emph{content effect}, where language models confuse formal logical validity with how plausible the argument sounds.
+We propose three techniques that work together to separate logical form from semantic content:
+(1)~Structure-Disentangled Prompting (SDP), which breaks syllogisms into premise-conclusion triples and uses a logic-first instruction template;
+(2)~Asymmetric Counterfactual Debiasing (ACD), a data augmentation method that only generates valid-to-invalid counterfactual pairs, taking advantage of an asymmetry in validity composition to avoid label noise;
+and (3)~Rank-Sensitive Logical Invariance Adaptation (RLIA), where we find that low-rank QLoRA adapters cannot simultaneously learn classification and suppress content-correlated shortcuts, and solve this by increasing adapter rank.
+Built on Qwen2.5-14B-Instruct, our system achieved a perfect Combined Score of 100.0 on the SemEval-2026 Task~11 Subtask~1 benchmark.
+Code: \url{https://github.com/chisngyen/semeval-task-11}
+\end{abstract}
+
+% ===========================================================================
+% 1. INTRODUCTION
+% ===========================================================================
+\section{Introduction}
+
+Language models tend to confuse formal logical validity with how plausible an argument sounds \cite{dasgupta2022language,eisape2024systematic}. This is called the \emph{content effect}: models rate plausible-but-invalid arguments as more likely valid, and implausible-but-valid ones as less likely valid. For deploying LLMs in tasks that require rigorous reasoning, such as medical ontology inference \cite{dao2025dragon}, this is a serious problem.
+
+SemEval-2026 Task~11 \cite{semeval2026task11} targets exactly this issue. The ranking metric rewards accuracy but also penalizes content bias, so simply getting more answers right is not enough; the system also needs to be robust to content plausibility.
+
+Our approach has three parts. Structure-Disentangled Prompting (SDP) breaks syllogisms into premise-conclusion triples and wraps them in a logic-first instruction template, pushing the model to reason about structure rather than content \cite{kim2024reasoning}. Asymmetric Counterfactual Debiasing (ACD) augments training data by swapping conclusions of valid syllogisms with unrelated ones, producing new invalid examples. We only do this in one direction (valid-to-invalid) because the reverse would introduce noisy labels: an arbitrary conclusion does not become valid just because it was taken from a valid syllogism. Finally, Rank-Sensitive Logical Invariance Adaptation (RLIA) addresses a problem we noticed with standard QLoRA: low-rank adapters ($r{=}16$) have enough capacity to learn validity classification, but not enough to also suppress content shortcuts. Bumping the rank to $r{=}64$ fixes this, cutting TCE by half while also improving accuracy.
+
+Our system achieved a perfect Combined Score of 100.0 (ACC\,=\,100\%, TCE\,=\,0), ranking 1st on the final leaderboard.
+
+% ===========================================================================
+% 2. BACKGROUND
+% ===========================================================================
+\section{Background}
+
+\subsection{Task Description}
+
+SemEval-2026 Task~11, Subtask~1 \cite{semeval2026task11} requires classifying the \emph{formal validity} of syllogistic arguments in English. Each syllogism comprises two premises and a conclusion. A syllogism is \emph{valid} if the conclusion necessarily follows from the premises, regardless of real-world truth:
+
+\begin{quote}
+\small
+\textbf{P1:} ``All cars are vehicles. No animal is a car.'' \\
+\textbf{Conclusion:} ``No animal can be a vehicle.'' \\
+\textbf{Validity:} \textsc{false} \quad \textbf{Plausibility:} \textsc{true}
+\end{quote}
+
+\noindent The conclusion is \emph{plausible} but logically \emph{invalid}. The content effect manifests when models leverage plausibility as a shortcut for validity.
+
+\subsection{Dataset and Evaluation}
+
+The training set contains \textbf{960 syllogisms} balanced across four conditions (validity $\times$ plausibility): VP (240), VI (240), IP (234), II (246). The test set contains \textbf{191 items}.
+
+The primary ranking metric is:
+\begin{equation}
+\text{Score} = \frac{\text{ACC}}{1 + \ln(1 + \text{TCE})}
+\label{eq:score}
+\end{equation}
+where $\text{ACC}$ is overall accuracy and $\text{TCE}$ is the Total Content Effect:
+\begin{equation}
+\text{TCE} = \frac{1}{2}\left(\text{CE}_\text{intra} + \text{CE}_\text{inter}\right)
+\end{equation}
+
+$\text{CE}_\text{intra}$ measures accuracy discrepancy between plausible and implausible items \emph{within} each validity class; $\text{CE}_\text{inter}$ measures discrepancy \emph{across} validity classes within each plausibility condition. Crucially, the logarithmic penalty in Eq.~\ref{eq:score} means that even small reductions in TCE yield large score improvements at high accuracy levels.
+
+\subsection{Related Work}
+
+\paragraph{Content effect in LLMs.} \citet{dasgupta2022language} demonstrated human-like belief biases in LMs. \citet{ozeki2024exploring} quantified these biases using the NeuBAROCO dataset. \citet{bertolazzi2024systematic} systematically analyzed LLMs as syllogistic reasoners at scale. \citet{eisape2024systematic} established that models and humans share similar reasoning error profiles.
+
+\paragraph{Debiasing approaches.} \citet{valentino2025mitigating} proposed activation steering at a fine-grained level to suppress content-dependent circuits. \citet{ranaldi2025improving} introduced quasi-symbolic abstractions within chain-of-thought prompting \cite{wei2022chain} to anchor reasoning in logical form. \citet{kim2024reasoning} identified ``reasoning circuits'' in transformers whose isolation can improve logical consistency.
+
+\paragraph{Symbolic approaches.} SymbCoT \cite{xu2024faithful} and LINC \cite{lyu2023faithful} translate natural language arguments into first-order logic and invoke theorem provers for verification. While effective for accuracy, these approaches are brittle to parsing errors and do not inherently address content bias within the underlying LM.
+
+\paragraph{Counterfactual augmentation.} Counterfactual data augmentation has been used for debiasing NLI models \cite{kaushik2020learning} and reducing spurious correlations. Our ACD method adapts this paradigm to syllogistic reasoning with a key asymmetric constraint that prevents the introduction of label noise.
+
+Our approach differs from prior work by trying to optimize accuracy and content-invariance at the same time, combining prompting, augmentation, and adaptation.
+
+% ===========================================================================
+% 3. SYSTEM OVERVIEW
+% ===========================================================================
+\section{System Overview}
+
+Our system (\method{}) integrates three components, illustrated in Figure~\ref{fig:system}. We build upon \textbf{Qwen2.5-14B-Instruct} \cite{qwen25}, selected for its strong reasoning capabilities (see Section~\ref{sec:ablation} for model comparison).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1.1\columnwidth]{pipeline.jpg}
+\caption{Overview of the \method{} system. Each component targets a distinct aspect of the content effect: SDP exposes logical structure, ACD disrupts content-validity associations, and RLIA provides sufficient adapter capacity to learn content-invariant features.}
+\label{fig:system}
+\end{figure}
+
+\subsection{Structure-Disentangled Prompting (SDP)}
+\label{sec:sdp}
+
+Prior work on NLI and reasoning tasks usually feeds arguments as flat text, leaving the model to figure out which part is a premise and which is the conclusion on its own. We suspected that making the structure explicit would reduce reliance on surface-level content cues.
+
+Given a syllogism in natural language, we apply a two-stage process:
+
+\paragraph{Structural parsing.} We extract (Premise$_1$, Premise$_2$, Conclusion) using a cascade of regex patterns targeting discourse markers (``Therefore,'' ``It follows that,'' ``Consequently'') and sentence boundary detection. When explicit markers are absent, we default to a sentence-order heuristic treating the final sentence as the conclusion.
+
+\paragraph{Logic-first template.} The parsed components are embedded in an instruction template:
+
+\begin{quote}
+\small
+\texttt{<|im\_start|>system} \\
+\texttt{You are a formal logician. Determine if} \\
+\texttt{the conclusion strictly follows from the} \\
+\texttt{premises. Ignore real-world plausibility.} \\
+\texttt{Focus ONLY on the logical structure.} \\
+\texttt{<|im\_end|>} \\
+\texttt{<|im\_start|>user} \\
+\texttt{[PREMISE 1]: \{P1\}} \\
+\texttt{[PREMISE 2]: \{P2\}} \\
+\texttt{[CONCLUSION]: \{C\}} \\
+\texttt{Does the conclusion logically follow?} \\
+\texttt{<|im\_end|><|im\_start|>assistant}
+\end{quote}
+
+The system prompt explicitly suppresses content-based reasoning by instructing the model to ``ignore real-world plausibility.'' The labeled structural slots \texttt{[PREMISE 1]}, \texttt{[PREMISE 2]}, \texttt{[CONCLUSION]} serve as form-based attention anchors analogous to role tags in semantic role labeling, directing the model's processing toward the logical relationship between components.
+
+\subsection{Asymmetric Counterfactual Debiasing (ACD)}
+\label{sec:acd}
+
+The content effect comes from models picking up on associations between premise-conclusion content and validity labels. Counterfactual augmentation breaks these associations: the model sees that the \emph{same premises} can lead to both valid and invalid conclusions, depending on logical structure.
+
+\paragraph{Key insight: asymmetry of validity composition.} Logical validity is not compositional with respect to conclusion substitution in both directions. In the valid-to-invalid direction, given a valid syllogism $(P_1, P_2, C)$ with $P_1, P_2 \models C$, replacing $C$ with an unrelated conclusion $C'$ drawn from an invalid syllogism almost certainly yields $P_1, P_2 \not\models C'$, because the probability that a random conclusion follows from arbitrary premises is negligible. Conversely, in the invalid-to-valid direction, replacing the conclusion of an invalid syllogism with one drawn from a valid syllogism does \emph{not} guarantee that the new conclusion follows from the original premises, since validity depends on the specific entailment relationship. This asymmetry means that only the valid-to-invalid direction is safe for counterfactual generation; the reverse direction introduces label noise.
+
+\paragraph{ACD procedure.} Based on this asymmetry, we generate counterfactual examples only in the safe direction. For each valid syllogism in the training set, with probability $\rho{=}0.5$, we extract its premises $(P_1, P_2)$, sample a conclusion $C'$ uniformly from the pool $\mathcal{C}_\text{inv}$ of conclusions appearing in invalid syllogisms, and add the constructed example $(P_1, P_2, C')$ labeled as \textsc{invalid} to the training set. This produces counterfactual pairs $\{(P_1, P_2, C, \text{valid}), (P_1, P_2, C', \text{invalid})\}$ sharing identical premises, teaching the model that validity cannot be determined from premises or content alone. ACD expands the training set by approximately 25\%, maintaining class balance. The detailed procedure is formalized in Algorithm~\ref{alg:acd} (Appendix~\ref{app:acd}).
+
+\subsection{Rank-Sensitive Logical Invariance Adaptation}
+\label{sec:hrla}
+
+We adapt Qwen2.5-14B-Instruct using QLoRA \cite{dettmers2023qlora,hu2022lora} with 4-bit NF4 quantization. While LoRA has proven highly effective for scaling models in specialized domains such as low-resource machine translation \cite{dao2025jharna}, our main observation here is that adapter rank creates a capacity bottleneck for content-invariant reasoning.
+
+\paragraph{The rank capacity bottleneck.} Standard QLoRA setups use ranks $r \in \{8, 16\}$ to keep parameter counts low. These are enough for the classification task itself, but content-invariant reasoning asks the adapter to do two things at once: learn the validity mapping \emph{and} suppress content-correlated features from pretraining. At low rank, the adapter uses up its degrees of freedom on the classification objective and has nothing left for suppressing content shortcuts. So the model gets high accuracy partly by exploiting content cues, simply because it does not have the capacity to do otherwise. Going to $r{=}64$ gives the adapter room for both.
+
+\paragraph{Empirical evidence.} The ablation in Section~\ref{sec:ablation} backs this up: going from $r{=}16$ to $r{=}64$ cut TCE in half (from 2.13 to 1.04) and also pushed accuracy from 98.43\% to 99.48\%, with the Combined Score jumping from 45.99 to 58.05. This is not just about having more parameters; Qwen2.5-32B with $r{=}32$ actually had \emph{worse} TCE (3.19), so the issue is really about adapter rank, not base model size.
+
+\paragraph{Configuration.} We apply LoRA to all attention projections ($W_Q$, $W_K$, $W_V$, $W_O$) and feed-forward layers ($W_\text{gate}$, $W_\text{up}$, $W_\text{down}$), with $\alpha{=}128$ and dropout $p{=}0.05$. The idea is to cover both the attention layers (where logical relationships between premise and conclusion are processed) and the feed-forward layers (where content representations tend to live). The model is trained for sequence classification with a 2-class head.
+
+% ===========================================================================
+% 4. EXPERIMENTAL SETUP
+% ===========================================================================
+\section{Experimental Setup}
+
+We use a 90/10 stratified train/validation split based on the four validity$\times$plausibility conditions. Table~\ref{tab:hyperparams} lists all hyperparameters.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Base model & Qwen2.5-14B-Instruct \\
+Quantization & NF4 (4-bit, double quant) \\
+LoRA rank ($r$) / alpha ($\alpha$) & 64 / 128 \\
+LoRA dropout & 0.05 \\
+LoRA targets & All linear projections \\
+Max sequence length & 512 tokens \\
+Batch size / grad. accum. & 2 / 8 (eff.\ 16) \\
+Learning rate & $2 \times 10^{-4}$ (cosine) \\
+Warmup ratio & 0.03 \\
+Weight decay & 0.01 \\
+Training epochs & 3 \\
+ACD augmentation ratio ($\rho$) & 0.5 \\
+\bottomrule
+\end{tabular}
+\caption{Hyperparameters for \method{}.}
+\label{tab:hyperparams}
+\end{table}
+
+Each model is trained for 3 epochs with gradient clipping (max norm 1.0) and the best checkpoint is selected by validation accuracy. All experiments were conducted on Kaggle with a single NVIDIA H100 GPU (80~GB), using Transformers \cite{wolf2020transformers} (v4.38+), PEFT\footnote{\url{https://github.com/huggingface/peft}} (v0.10+), and bitsandbytes \cite{dettmers2022llmint8} (v0.43+).
+
+% ===========================================================================
+% 5. RESULTS
+% ===========================================================================
+\section{Results}
+
+\subsection{Main Results}
+
+Our final system achieved a perfect Combined Score of 100.0 (ACC\,=\,100\%, TCE\,=\,0), ranking 1st on the final leaderboard.
+
+\subsection{Ablation Study}
+\label{sec:ablation}
+
+Table~\ref{tab:ablation} traces the contribution of each proposed component (see Appendix~\ref{app:experiments} for the full experiment log). Due to computational constraints, we initially evaluated SDP and ACD on DeBERTa-v3-large \cite{he2021debertav3} as a rapid prototyping environment, then transferred the most effective techniques to the Qwen2.5 architecture for final system development.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{clccc}
+\toprule
+& \textbf{Configuration} & \textbf{ACC} & \textbf{TCE} & \textbf{Score} \\
+\midrule
+\multicolumn{5}{l}{\textit{(a) Architecture comparison}} \\
+& DeBERTa-v3-large & 84.82 & 3.32 & 34.42 \\
+& Qwen2.5-7B (r=16) & 96.34 & 5.32 & 33.88 \\
+& Qwen2.5-14B (r=16) & 97.91 & 2.12 & 45.74 \\
+\midrule
+\multicolumn{5}{l}{\textit{(b) Contribution of SDP (on DeBERTa)}} \\
+& Without SDP & 93.72 & 4.28 & 35.19 \\
+& With SDP & 96.34 & 5.32 & 33.88 \\
+\midrule
+\multicolumn{5}{l}{\textit{(c) Contribution of ACD}} \\
+& DeBERTa, no ACD & 93.72 & 4.28 & 35.19 \\
+& DeBERTa + bidir.\ CF & 92.67 & 3.13 & 38.34 \\
+& DeBERTa + ACD & 95.29 & 3.21 & 39.08 \\
+\hdashline
+& Qwen-14B, no ACD & 97.91 & 2.12 & 45.74 \\
+& Qwen-14B + ACD & 98.43 & 2.13 & 45.99 \\
+\midrule
+\multicolumn{5}{l}{\textit{(d) Rank capacity bottleneck (RLIA)}} \\
+& Qwen-14B, $r{=}16$ + ACD & 98.43 & 2.13 & 45.99 \\
+& Qwen-14B, $r{=}64$ + ACD & \textbf{99.48} & \textbf{1.04} & \textbf{58.05} \\
+\bottomrule
+\end{tabular}
+\caption{Ablation study. Each section isolates a single component. ACC and TCE in \%.}
+\label{tab:ablation}
+\end{table}
+
+Scaling from DeBERTa-v3-large (304M) to Qwen2.5-14B yields large improvements in both ACC (+13 points) and TCE ($-$1.2), though Qwen-7B achieves higher accuracy than DeBERTa with \emph{worse} TCE, suggesting that model scale alone does not guarantee content-invariance (block~a). SDP increases DeBERTa accuracy by 2.6 points but also increases TCE, indicating that structured prompting helps encoder models attend to logical structure without fully disentangling it from content (block~b). On Qwen, SDP is inherently integrated through the chat template's system/user role structure, which natively supports the premise-conclusion decomposition; isolating its contribution would require removing the instruction format entirely, so we report SDP's effect on DeBERTa as a lower-bound estimate.
+
+The key comparison for ACD is between bidirectional counterfactual augmentation and our asymmetric variant (block~c). Bidirectional augmentation reduces TCE (from 4.28 to 3.13) but also reduces accuracy (from 93.72\% to 92.67\%) due to label noise from the unsafe invalid-to-valid direction; ACD achieves a better trade-off with TCE of 3.21 and accuracy increasing to 95.29\%, validating the asymmetric design. On Qwen, ACD improves accuracy while maintaining comparable TCE. The most notable result is the rank bottleneck (block~d): going from $r{=}16$ to $r{=}64$ cuts TCE in half (from 2.13 to 1.04) and improves ACC by 1 point, pushing the Combined Score from 45.99 to 58.05. It is not that $r{=}64$ is a particularly large rank; rather, $r{=}16$ simply does not have enough capacity for both classification and content suppression.
+
+\subsection{Analysis: The Accuracy--Bias Trade-off}
+\label{sec:tradeoff}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Method} & \textbf{ACC} $\uparrow$ & \textbf{TCE} $\downarrow$ & \textbf{Score} \\
+\midrule
+Baseline (DeBERTa) & 84.82 & 3.32 & 34.42 \\
++ Hyperparams & 89.53 & 5.39 & 31.37 \\
++ R-Drop & 91.62 & 6.43 & 30.49 \\
++ Multi-task & 88.48 & 10.66 & 25.60 \\
+\midrule
++ ACD & 95.29 & 3.21 & 39.08 \\
+Full \method{} (single seed) & 99.48 & 1.04 & 58.05 \\
+Full \method{} (ensemble) & \textbf{100.0} & \textbf{0.00} & \textbf{100.0} \\
+\bottomrule
+\end{tabular}
+\caption{The accuracy--bias trade-off. Methods improving ACC through conventional training techniques (hyperparameter tuning, regularization, multi-task) often \emph{increase} TCE, lowering the Combined Score. ACD and RLIA break this pattern.}
+\label{tab:tradeoff}
+\end{table}
+
+Table~\ref{tab:tradeoff} shows an interesting pattern: the usual tricks for improving accuracy (tuning hyperparameters, R-Drop \cite{liang2021rdrop}, multi-task learning) actually \emph{increase} content bias. These methods push the model to use every available signal, content shortcuts included. ACD and RLIA work differently because they specifically target content-invariance, not just accuracy.
+
+For tasks where the metric penalizes both errors and bias, the standard playbook of ``train harder'' does not work. You need methods that explicitly address the bias.
+
+\subsection{Error Analysis}
+\label{sec:error}
+
+A single training run (seed 42) misclassifies 1 out of 191 test samples: ``Everything that is a spider is an arachnid. Nothing that is an insect is an arachnid. It is not the case that all insects are spiders.'' This is a valid Celarent-form argument (All S are A, No I is A $\vdash$ Not all I are S), but the model predicted it as invalid. The conclusion uses a negated universal (``it is not the case that all\ldots''), a form that rarely appears in the training data where most valid conclusions use affirmative or existential quantifiers. We suspect this surface-level unfamiliarity, rather than the content effect, caused the error.
+
+The multi-seed ensemble resolves this: averaging predictions across 10 seeds corrects the single error, bringing the final system to 100\% accuracy with TCE\,=\,0. The error from any individual seed is not systematic but rather a consequence of initialization sensitivity on edge cases.
+
+\subsection{Failed Experiments}
+
+Several approaches were explored but ultimately abandoned. Scaling to Qwen2.5-32B with QLoRA achieved only a score of 40.24 because memory constraints forced $r{\leq}32$, confirming that adapter rank matters more than raw model size. Zero-shot chain-of-thought prompting \cite{kojima2022large,wei2022chain} with Gemini~2.0 Flash \cite{gemmateam2024gemini} yielded 49.74\% accuracy and TCE\,=\,50 (near random), demonstrating that even frontier LLMs without fine-tuning are highly susceptible to the content effect. Parsing syllogisms into first-order logic for symbolic verification improved structural awareness but introduced parsing errors, yielding only 79.06\% accuracy. Finally, test-time augmentation via premise-order swapping degraded performance (score: 33.72), suggesting that premise order carries structural information that should not be averaged away.
+
+% ===========================================================================
+% 6. CONCLUSION
+% ===========================================================================
+\section{Conclusion}
+
+We proposed \method{}, a system for syllogistic reasoning that combines Structure-Disentangled Prompting to make logical structure explicit, Asymmetric Counterfactual Debiasing to break content-validity shortcuts using one-directional augmentation, and Rank-Sensitive Logical Invariance Adaptation to give the adapter enough room to suppress content bias.
+
+Beyond the competition results, we think two observations from this work are worth highlighting. The asymmetry of validity composition, i.e.\ that swapping conclusions reliably breaks valid syllogisms but does not reliably fix invalid ones, has practical implications for anyone doing counterfactual augmentation in logic tasks. And the rank capacity bottleneck, where low-rank adapters spend all their capacity on the main task and have nothing left for bias suppression, is likely relevant to other settings where fine-tuning needs to satisfy multiple objectives at once.
+
+For future work, we plan to combine ACD with activation steering methods \cite{valentino2025mitigating} to directly intervene on content-encoding circuits, explore the rank-bias relationship systematically across reasoning tasks, and investigate curriculum learning strategies that increase content-plausibility conflict difficulty during training.
+
+% ===========================================================================
+% ACKNOWLEDGMENTS
+% ===========================================================================
+\section*{Acknowledgments}
+
+We thank the SemEval-2026 Task~11 organizers, Marco Valentino, Leonardo Ranaldi, Giulia Pucci, Federico Ranaldi, and Andre Freitas, for organizing this task and providing the dataset. We also thank Kaggle for providing GPU resources.
+
+% ===========================================================================
+% REFERENCES
+% ===========================================================================
+\bibliography{references}
+
+% ===========================================================================
+% APPENDIX
+% ===========================================================================
+\appendix
+
+\section{ACD Algorithm}
+\label{app:acd}
+
+Algorithm~\ref{alg:acd} formalizes the Asymmetric Counterfactual Debiasing procedure.
+
+\begin{algorithm}[H]
+\caption{Asymmetric Counterfactual Debiasing}
+\label{alg:acd}
+\begin{algorithmic}[1]
+\Require Training set $\mathcal{D}$, augmentation ratio $\rho$
+\State $\mathcal{C}_{\text{inv}} \gets \{\text{conclusions from } (s,y) \in \mathcal{D} : y = \text{invalid}\}$
+\State $\mathcal{D}' \gets \mathcal{D}$
+\For{each $(s, y) \in \mathcal{D}$ where $y = \text{valid}$}
+    \If{$\text{Uniform}(0,1) < \rho$}
+        \State $(P_1, P_2, C) \gets \text{parse}(s)$
+        \State $C' \sim \text{Uniform}(\mathcal{C}_{\text{inv}})$
+        \State $s' \gets \text{construct}(P_1, P_2, C')$
+        \State $\mathcal{D}' \gets \mathcal{D}' \cup \{(s', \text{invalid})\}$
+    \EndIf
+\EndFor
+\State \Return $\mathcal{D}'$
+\end{algorithmic}
+\end{algorithm}
+
+\section{Extended Experiment Log}
+\label{app:experiments}
+
+Table~\ref{tab:full_experiments} lists key experiments from our development process.
+
+\begin{table}[htbp]
+\centering
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{clllccc}
+\toprule
+\textbf{ID} & \textbf{Model} & \textbf{Method} & \textbf{Key Change} & \textbf{ACC (\%)} & \textbf{TCE} & \textbf{Score} \\
+\midrule
+1 & DeBERTa-v3-large & Baseline & --- & 84.82 & 3.32 & 34.42 \\
+2 & Gemini 2.0 Flash & Zero-shot CoT & No fine-tuning & 49.74 & 50.00 & 10.09 \\
+3 & DeBERTa-v3-large & Symbolic FOL & FOL translation & 79.06 & 8.58 & 24.26 \\
+9 & DeBERTa-v3-large & R-Drop + LS & Combined regularization & 93.72 & 4.28 & 35.19 \\
+12 & DeBERTa-v3-large & + SDP & Structural decomposition & 96.34 & 5.32 & 33.88 \\
+17 & DeBERTa-v3-large & Bidir.\ CF & Bidirectional counterfactual & 92.67 & 3.13 & 38.34 \\
+21 & DeBERTa-v3-large & ACD (ours) & Asymmetric counterfactual & 95.29 & 3.21 & 39.08 \\
+25 & Qwen2.5-7B & QLoRA $r{=}16$ & First LLM attempt & 96.34 & 5.32 & 33.88 \\
+26 & Qwen2.5-14B & QLoRA $r{=}16$ & Scale up model & 97.91 & 2.12 & 45.74 \\
+28 & Qwen2.5-14B & + ACD, $r{=}16$ & Add augmentation & 98.43 & 2.13 & 45.99 \\
+28b & Qwen2.5-14B & + ACD, $r{=}64$ (RLIA) & Rank-sensitive adaptation & 99.48 & 1.04 & 58.05 \\
+33 & Qwen2.5-32B & QLoRA $r{=}32$ & Larger model & 97.91 & 3.19 & 40.24 \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Extended experiment log. ACC and TCE in \%. Score = ACC / (1 + ln(1 + TCE)).}
+\label{tab:full_experiments}
+\end{table}
+
+\section{Rank Capacity Analysis}
+\label{app:rank}
+
+Table~\ref{tab:rank} illustrates the rank capacity bottleneck for Qwen2.5-14B with ACD augmentation.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{cccc}
+\toprule
+\textbf{LoRA Rank ($r$)} & \textbf{ACC (\%)} & \textbf{TCE} & \textbf{Score} \\
+\midrule
+16 & 98.43 & 2.13 & 45.99 \\
+32 (32B model)$^\dagger$ & 97.91 & 3.19 & 40.24 \\
+64 & \textbf{99.48} & \textbf{1.04} & \textbf{58.05} \\
+\bottomrule
+\end{tabular}
+\caption{Rank capacity bottleneck. Low rank ($r{=}16$) achieves high accuracy but cannot simultaneously suppress content bias. Increasing to $r{=}64$ resolves the bottleneck. $^\dagger$Uses Qwen-32B (not directly comparable).}
+\label{tab:rank}
+\end{table}
+
+\end{document}
